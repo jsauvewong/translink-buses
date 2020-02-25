@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactMapGL from 'react-map-gl';
-
+import { Markers } from './Marker';
 
 export class Map extends Component {
 
@@ -24,7 +24,9 @@ export class Map extends Component {
         {...this.state.viewport}
         mapboxApiAccessToken={mapboxApiAccessToken}
         onViewportChange={(viewport) => this.setState({viewport})}
-      />
+      >
+          <Markers />
+       </ReactMapGL>
     );
   }
 }
