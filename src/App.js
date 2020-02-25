@@ -1,5 +1,6 @@
 import React from 'react';
 import { Header } from './Header'
+import { Map } from './Map'
 import './App.css';
 
 class App extends React.Component {
@@ -7,7 +8,11 @@ class App extends React.Component {
     const name = "JS"
     return (
       <div className="App">
-        <Header firstName={name} />
+        <Map
+          />
+        <Header 
+          firstName={name}
+         />
       </div>
     )
   }
