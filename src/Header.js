@@ -1,5 +1,15 @@
 import React from 'react';
 
+
+export class NumberOfTodos extends React.PureComponent {
+  render() {
+    console.log('NumberOfTodos is rendering!')
+    return (
+      <div>We have {this.props.numberOfTodos} todos!</div>
+    )
+  }
+}
+
 export class Header extends React.Component {
 
   constructor(props) {
@@ -26,7 +36,8 @@ export class Header extends React.Component {
         {this.state.todos.map(todo => (
           <div key={todo}>{todo}</div>
         ))}
-        We have {this.state.todos.length} todos!
+        {/* <NumberOfTodos numberOfTodos={this.state.todos.length} /> */}
+        <NumberOfTodos numberOfTodos={0} />
       </header>
     )
   }
