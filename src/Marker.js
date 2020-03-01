@@ -7,6 +7,11 @@ const CITIES = [Vancouver];
 
 // PureComponent ensures that the markers are only rerendered when data changes
 export class Markers extends PureComponent {
+
+
+  
+
+
   render() {
     return CITIES.map(
       city => <Marker key={city.name} 
