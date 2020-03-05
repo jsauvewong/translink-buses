@@ -2,18 +2,23 @@ import React, {PureComponent} from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
 import logo from './school-bus.svg';
 
-const Vancouver = {name:"Vancouver", longitude:-123.107176 ,latitude:49.282842}
-const CITIES = [Vancouver];
+const BusAtHome = {name:"Vancouver", longitude:-123.107176 ,latitude:49.282842}
+const Buses = [BusAtHome];
 
 // PureComponent ensures that the markers are only rerendered when data changes
 export class Markers extends PureComponent {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
 
   
 
 
   render() {
-    return CITIES.map(
+    return Buses.map(
       city => <Marker key={city.name} 
                 longitude={city.longitude} 
                 latitude={city.latitude} 

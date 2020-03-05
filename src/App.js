@@ -13,6 +13,9 @@ class App extends React.Component {
         <Header 
           firstName={name}
          />
+         <Header 
+          firstName={name}
+         />
       </div>
     )
   }
