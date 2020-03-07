@@ -2,16 +2,15 @@ import React, {PureComponent} from 'react';
 import ReactMapGL, {Marker} from 'react-map-gl';
 import logo from './school-bus.svg';
 
-const BusAtHome = {name:"Vancouver", longitude:-123.107176 ,latitude:49.282842}
-const BusAtWork = {name:"Vancouver", longitude:-123.103000 ,latitude:49.282650}
+const BusAtHome = {name:"Home", longitude:-123.107176 ,latitude:49.282842}
+const BusAtWork = {name:"Work", longitude:-123.103000 ,latitude:49.282650}
 
 // PureComponent ensures that the markers are only rerendered when data changes
 export class BusCollection extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      Buses: [BusAtHome, BusAtWork]
-
+      Buses: [BusAtWork]
     }
   }
   componentDidMount() {
@@ -29,17 +28,18 @@ export class BusCollection extends PureComponent {
   }
 
   tick() {
-    if(this.state.Buses.length=== 0){
+    const someBus = this.state.Buses[0]
+    if( someBus.name===BusAtHome.name ){
       this.setState(
         {
-          Buses: [BusAtHome, BusAtWork]
+          Buses: [BusAtWork]
         }
       )
     }
       else {
       this.setState(
         {
-          Buses: []
+          Buses: [BusAtHome]
         }
       )
       }
