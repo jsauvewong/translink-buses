@@ -1,32 +1,32 @@
-import React, {Component} from 'react';
-import ReactMapGL from 'react-map-gl';
-import { BusCollection } from './BusCollection';
+import React, { Component } from 'react'
+import ReactMapGL from 'react-map-gl'
+import { BusCollection } from './BusCollection'
 
 export class Map extends Component {
-
   state = {
     viewport: {
-      width: 1400,
-      height: 1000,
       latitude: 49.2827,
       longitude: -123.1207,
-      zoom: 12
-    }
-  };
+      zoom: 12,
+    },
+  }
 
+  onViewportChange = viewport => {
+    const { width, height, ...etc } = viewport
+    this.setState({ viewport: etc })
+  }
 
   render() {
-
-    const mapboxApiAccessToken = 'pk.eyJ1IjoianNhdXZld29uZyIsImEiOiJjazcxZTZ5N3YwNTlvM29ud3kyODE1d2d4In0.FvUD3otlw2hc8We2yH1YnQ'
-
     return (
       <ReactMapGL
+        width="100%"
+        height="100VH"
         {...this.state.viewport}
-        mapboxApiAccessToken={mapboxApiAccessToken}
-        onViewportChange={(viewport) => this.setState({viewport})}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        onViewportChange={viewport => this.onViewportChange(viewport)}
       >
-          <BusCollection />
-       </ReactMapGL>
-    );
+        <BusCollection />
+      </ReactMapGL>
+    )
   }
 }
