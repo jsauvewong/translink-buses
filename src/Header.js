@@ -18,6 +18,7 @@ export class Header extends React.Component {
     super(props)
     this.state = {
       numberOfTimesClicked: 0,
+      x: 1
       // todos: [],
     }
   }
@@ -26,6 +27,7 @@ export class Header extends React.Component {
     globalTodos.push(`Todo #${this.state.numberOfTimesClicked}`)
     this.setState({
       numberOfTimesClicked: this.state.numberOfTimesClicked + 1,
+      x: 2
       // todos: [...this.state.todos, `Todo #${this.state.numberOfTimesClicked}`],
     })
   }
